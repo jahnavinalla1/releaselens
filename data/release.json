@@ -1,0 +1,29 @@
+{
+  "versions": {
+    "baseline": {"approval_roles": ["manager"], "approved_status": "approved", "audit_enabled": true},
+    "candidate": {"approval_roles": ["manager", "analyst"], "approved_status": "accepted", "audit_enabled": false},
+    "corrected": {"approval_roles": ["manager"], "approved_status": "approved", "audit_enabled": true}
+  },
+  "requirements": [
+    {"id": "R01", "description": "Only managers can approve requests; rejection cannot write records", "priority": "critical"},
+    {"id": "R02", "description": "A positive numeric budget is required", "priority": "critical"},
+    {"id": "R03", "description": "Approved requests retain the downstream approved status contract", "priority": "critical"},
+    {"id": "R04", "description": "Every successful approval creates an audit record", "priority": "critical"}
+  ],
+  "dependencies": {
+    "request-workflow": [],
+    "operations-export": ["request-workflow"],
+    "budget-dashboard": ["operations-export"],
+    "audit-review": ["request-workflow"],
+    "training-guide": ["request-workflow"],
+    "unrelated-inventory": []
+  },
+  "cases": [
+    {"id": "U01", "requirement": "R01", "input": {"request_id": "DEMO-01", "role": "manager", "budget": 100}, "expected": {"request_id": "DEMO-01"}, "expected_records": 1},
+    {"id": "U02", "requirement": "R01", "input": {"request_id": "DEMO-02", "role": "analyst", "budget": 100}, "expected": {"error": "forbidden"}, "expected_records": 0, "expected_audits": 0},
+    {"id": "U03", "requirement": "R02", "input": {"request_id": "DEMO-03", "role": "manager", "budget": null}, "expected": {"error": "invalid_budget"}, "expected_records": 0},
+    {"id": "U04", "requirement": "R02", "input": {"request_id": "DEMO-04", "role": "manager", "budget": -1}, "expected": {"error": "invalid_budget"}, "expected_records": 0},
+    {"id": "U05", "requirement": "R03", "input": {"request_id": "DEMO-05", "role": "manager", "budget": 100}, "expected": {"status": "approved"}},
+    {"id": "U06", "requirement": "R04", "input": {"request_id": "DEMO-06", "role": "manager", "budget": 100}, "expected": {"request_id": "DEMO-06"}, "expected_audits": 1}
+  ]
+}

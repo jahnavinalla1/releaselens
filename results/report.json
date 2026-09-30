@@ -1,0 +1,305 @@
+{
+  "simulation": true,
+  "impact": [
+    "audit-review",
+    "budget-dashboard",
+    "operations-export",
+    "request-workflow",
+    "training-guide"
+  ],
+  "releases": {
+    "baseline": {
+      "evidence": {
+        "config_digest": "0e93d7724358ae9893a845ccc9fc2c170fb8db7538ad2ca29f547aa9bb9d06cd",
+        "suite_digest": "b296106295aaceb6396efb23220a1db38984100beb9292d8191aa0b9dd860fb7",
+        "results": [
+          {
+            "case_id": "U01",
+            "requirement": "R01",
+            "passed": true,
+            "expected": {
+              "request_id": "DEMO-01"
+            },
+            "actual": {
+              "request_id": "DEMO-01"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          },
+          {
+            "case_id": "U02",
+            "requirement": "R01",
+            "passed": true,
+            "expected": {
+              "error": "forbidden"
+            },
+            "actual": {
+              "error": "forbidden"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U03",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U04",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U05",
+            "requirement": "R03",
+            "passed": true,
+            "expected": {
+              "status": "approved"
+            },
+            "actual": {
+              "status": "approved"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          },
+          {
+            "case_id": "U06",
+            "requirement": "R04",
+            "passed": true,
+            "expected": {
+              "request_id": "DEMO-06"
+            },
+            "actual": {
+              "request_id": "DEMO-06"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          }
+        ]
+      },
+      "rollback": {
+        "config_restored": true,
+        "records_preserved": true,
+        "audit_preserved": true,
+        "post_rollback_smoke": true
+      },
+      "gate": {
+        "decision": "READY_FOR_REVIEW",
+        "reasons": [],
+        "human_approval": "Not obtained; simulated technical evidence only"
+      }
+    },
+    "candidate": {
+      "evidence": {
+        "config_digest": "4d71d0b7a00155d305e26e506a7a89d0effb0f13ac4f76456f54bed3431de152",
+        "suite_digest": "b296106295aaceb6396efb23220a1db38984100beb9292d8191aa0b9dd860fb7",
+        "results": [
+          {
+            "case_id": "U01",
+            "requirement": "R01",
+            "passed": true,
+            "expected": {
+              "request_id": "DEMO-01"
+            },
+            "actual": {
+              "request_id": "DEMO-01"
+            },
+            "audit_count": 0,
+            "record_count": 1
+          },
+          {
+            "case_id": "U02",
+            "requirement": "R01",
+            "passed": false,
+            "expected": {
+              "error": "forbidden"
+            },
+            "actual": {
+              "error": null
+            },
+            "audit_count": 0,
+            "record_count": 1
+          },
+          {
+            "case_id": "U03",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U04",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U05",
+            "requirement": "R03",
+            "passed": false,
+            "expected": {
+              "status": "approved"
+            },
+            "actual": {
+              "status": "accepted"
+            },
+            "audit_count": 0,
+            "record_count": 1
+          },
+          {
+            "case_id": "U06",
+            "requirement": "R04",
+            "passed": false,
+            "expected": {
+              "request_id": "DEMO-06"
+            },
+            "actual": {
+              "request_id": "DEMO-06"
+            },
+            "audit_count": 0,
+            "record_count": 1
+          }
+        ]
+      },
+      "rollback": {
+        "config_restored": true,
+        "records_preserved": true,
+        "audit_preserved": true,
+        "post_rollback_smoke": true
+      },
+      "gate": {
+        "decision": "HOLD",
+        "reasons": [
+          "One or more regression tests failed"
+        ],
+        "human_approval": "Not obtained; simulated technical evidence only"
+      }
+    },
+    "corrected": {
+      "evidence": {
+        "config_digest": "0e93d7724358ae9893a845ccc9fc2c170fb8db7538ad2ca29f547aa9bb9d06cd",
+        "suite_digest": "b296106295aaceb6396efb23220a1db38984100beb9292d8191aa0b9dd860fb7",
+        "results": [
+          {
+            "case_id": "U01",
+            "requirement": "R01",
+            "passed": true,
+            "expected": {
+              "request_id": "DEMO-01"
+            },
+            "actual": {
+              "request_id": "DEMO-01"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          },
+          {
+            "case_id": "U02",
+            "requirement": "R01",
+            "passed": true,
+            "expected": {
+              "error": "forbidden"
+            },
+            "actual": {
+              "error": "forbidden"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U03",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U04",
+            "requirement": "R02",
+            "passed": true,
+            "expected": {
+              "error": "invalid_budget"
+            },
+            "actual": {
+              "error": "invalid_budget"
+            },
+            "audit_count": 0,
+            "record_count": 0
+          },
+          {
+            "case_id": "U05",
+            "requirement": "R03",
+            "passed": true,
+            "expected": {
+              "status": "approved"
+            },
+            "actual": {
+              "status": "approved"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          },
+          {
+            "case_id": "U06",
+            "requirement": "R04",
+            "passed": true,
+            "expected": {
+              "request_id": "DEMO-06"
+            },
+            "actual": {
+              "request_id": "DEMO-06"
+            },
+            "audit_count": 1,
+            "record_count": 1
+          }
+        ]
+      },
+      "rollback": {
+        "config_restored": true,
+        "records_preserved": true,
+        "audit_preserved": true,
+        "post_rollback_smoke": true
+      },
+      "gate": {
+        "decision": "READY_FOR_REVIEW",
+        "reasons": [],
+        "human_approval": "Not obtained; simulated technical evidence only"
+      }
+    }
+  }
+}
